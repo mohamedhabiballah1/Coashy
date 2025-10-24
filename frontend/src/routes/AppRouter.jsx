@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login";
+import Auth from "../pages/Auth";
 import Register from "../pages/Register";
 import Home from "../pages/Home";
 
@@ -13,11 +13,11 @@ export default function AppRouter() {
     <Router>
       <Routes>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/authentication" element={<Auth />} />
+        {/* <Route path="/register" element={<Register />} /> */}
 
         <Route
-          path="/dashboard"
+          path="/home"
           element={
             <PrivateRoute>
               <Home />
