@@ -39,12 +39,12 @@ exports.login = async (req, res) => {
 
         const user = await User.findOne({ where: {email}})
         if (!user) {
-            return res.status(401).json({ message: "Invaid credentials" });
+            return res.status(400).json({ message: "Invaid credentials" });
         }
 
         const match = bcrypt.compare(user.password, password);
         if (!match) {
-            return res.status(401).json({ message: "Invaid credentials" });
+            return res.status(400).json({ message: "Invaid credentials" });
         }
 
         const token = generateToken(user.id)
